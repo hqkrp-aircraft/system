@@ -1,0 +1,19 @@
+name: run-system
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '8/5 * * * *'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: SYSTEM BUILDER deploy
+      run: .   ./kindo
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: SYSTEM BUILDER debug
+      run: source     ./kindo
